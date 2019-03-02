@@ -9,5 +9,6 @@ public class NullTest {
     @Test
     public void testWhenNull() {
         assertTrue(true);
+
     }
 }

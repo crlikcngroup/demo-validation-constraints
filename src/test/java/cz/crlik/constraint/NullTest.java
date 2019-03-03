@@ -4,36 +4,36 @@ import org.junit.Test;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.util.Set;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class NotNullTest extends AbstractTest {
+public class NullTest extends AbstractTest {
     @Test
     public void testWhenNull() {
         final Object testedObject = new Object() {
-            @NotNull
+            @Null
             public Integer counter = null;
         };
 
         Validator validator = createValidator();
         Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
 
-        assertFalse(violations.isEmpty());
+        assertTrue(violations.isEmpty());
     }
 
     @Test
     public void testWhenNotNull() {
         final Object testedObject = new Object() {
-            @NotNull
+            @Null
             public Integer counter = new Integer(100);
         };
 
         Validator validator = createValidator();
         Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
 
-        assertTrue(violations.isEmpty());
+        assertFalse(violations.isEmpty());
     }
 }

@@ -10,7 +10,7 @@ import java.util.Set;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class AssertTrueTest extends AbstractTest{
+public class AssertTrueTest extends AbstractTest {
     @Test
     public void testTrue() {
         final Object testedObject = new Object() {

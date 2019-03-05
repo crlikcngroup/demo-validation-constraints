@@ -5,7 +5,12 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 public class AbstractTest {
-    protected Validator createValidator() {
+    /**
+     * Creates validator instance.
+     *
+     * @return Validator instance.
+     */
+    protected final Validator createValidator() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         return factory.getValidator();
     }

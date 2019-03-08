@@ -6,3 +6,4 @@ maso
 zelenina
 ovoce
 cocka
+ryze

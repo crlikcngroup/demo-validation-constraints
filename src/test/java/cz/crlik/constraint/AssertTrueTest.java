@@ -27,6 +27,7 @@ public class AssertTrueTest extends AbstractTest {
     @Test
     public void failedTest() {
         assertFalse(true);
+        
     }
 
     @Test

@@ -4,4 +4,4 @@ svet jak prase
 polevka
 maso
 zelenina
-
+ovoce

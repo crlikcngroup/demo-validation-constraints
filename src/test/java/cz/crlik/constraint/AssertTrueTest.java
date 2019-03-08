@@ -25,6 +25,11 @@ public class AssertTrueTest extends AbstractTest {
     }
 
     @Test
+    public void failedTest() {
+        assertFalse(true);
+    }
+
+    @Test
     public void testFalse() {
         final Object testedObject = new Object() {
             @AssertTrue

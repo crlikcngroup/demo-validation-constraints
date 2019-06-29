@@ -2,13 +2,7 @@ package cz.crlik.constraint;
 
 import org.junit.Test;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
 import javax.validation.constraints.Min;
-import java.util.Set;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class MinTest extends AbstractTest {
     @Test
@@ -18,10 +12,7 @@ public class MinTest extends AbstractTest {
             public int num = 1;
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertFalse(violations.isEmpty());
+        shouldFail(testedObject);
     }
 
     @Test
@@ -31,10 +22,7 @@ public class MinTest extends AbstractTest {
             public int num = 100;
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertTrue(violations.isEmpty());
+        shouldPass(testedObject);
     }
 
     @Test
@@ -44,10 +32,7 @@ public class MinTest extends AbstractTest {
             public int num = 144;
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertTrue(violations.isEmpty());
+        shouldPass(testedObject);
     }
 
     @Test
@@ -57,9 +42,6 @@ public class MinTest extends AbstractTest {
             public Integer num = null;
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertTrue(violations.isEmpty());
+        shouldPass(testedObject);
     }
 }

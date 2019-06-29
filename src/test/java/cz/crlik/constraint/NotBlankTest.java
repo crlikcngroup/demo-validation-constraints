@@ -2,13 +2,7 @@ package cz.crlik.constraint;
 
 import org.junit.Test;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
 import javax.validation.constraints.NotBlank;
-import java.util.Set;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class NotBlankTest extends AbstractTest {
     @Test
@@ -19,10 +13,7 @@ public class NotBlankTest extends AbstractTest {
 
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertTrue(violations.isEmpty());
+        shouldPass(testedObject);
     }
 
     @Test
@@ -33,10 +24,7 @@ public class NotBlankTest extends AbstractTest {
 
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertTrue(violations.isEmpty());
+        shouldPass(testedObject);
     }
 
     @Test
@@ -47,11 +35,9 @@ public class NotBlankTest extends AbstractTest {
 
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertFalse(violations.isEmpty());
+        shouldFail(testedObject);
     }
+
     @Test
     public void testStringWithOnlyWhiteSpaces() {
         Object testedObject = new Object() {
@@ -60,10 +46,7 @@ public class NotBlankTest extends AbstractTest {
 
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertFalse(violations.isEmpty());
+        shouldFail(testedObject);
     }
 
     @Test
@@ -74,9 +57,6 @@ public class NotBlankTest extends AbstractTest {
 
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertFalse(violations.isEmpty());
+        shouldFail(testedObject);
     }
 }

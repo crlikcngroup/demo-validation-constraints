@@ -2,13 +2,7 @@ package cz.crlik.constraint;
 
 import org.junit.Test;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
 import javax.validation.constraints.AssertFalse;
-import java.util.Set;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class AssertFalseTest extends AbstractTest {
     @Test
@@ -18,10 +12,7 @@ public class AssertFalseTest extends AbstractTest {
             public boolean flag = false;
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertTrue(violations.isEmpty());
+        shouldPass(testedObject);
     }
 
     @Test
@@ -31,10 +22,7 @@ public class AssertFalseTest extends AbstractTest {
             public boolean flag = true;
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertFalse(violations.isEmpty());
+        shouldFail(testedObject);
     }
 
     @Test
@@ -44,9 +32,6 @@ public class AssertFalseTest extends AbstractTest {
             public Boolean flag = null;
         };
 
-        Validator validator = createValidator();
-        Set<ConstraintViolation<Object>> violations = validator.validate(testedObject);
-
-        assertTrue(violations.isEmpty());
+        shouldPass(testedObject);
     }
 }
